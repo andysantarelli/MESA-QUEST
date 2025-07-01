@@ -1,0 +1,81 @@
+&star_job
+    create_pre_main_sequence_model = .true.
+
+    change_initial_net = .true.
+    new_net_name = 'pp_cno_extras_o18_ne22.net'
+
+    pgstar_flag = .false.
+
+    new_core_mass = 5
+
+    relax_core = .true.
+    relax_initial_core = .true.
+    dlg_core_mass_per_step  = 1d-1
+    !relax_core_years_for_dt = 1d-3
+
+/ ! end of star_job namelist
+
+
+&eos
+/ ! end of eos namelist
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0
+
+/ ! end of kap namelist
+
+
+&controls
+
+    write_profiles_flag = .true.
+    history_interval = 20
+    profile_interval = 999999999
+    photo_interval = -1
+    max_num_profile_models = 50
+
+    mesh_delta_coeff = 0.2
+    time_delta_coeff = 0.2
+    min_timestep_limit = 1d-8
+    !max_dq = 1d-3
+    max_surface_cell_dq = 1d-10
+    max_allowed_nz = 20000
+
+    !hydro_mtx_max_allowed_logT = 99   
+    !hydro_mtx_min_allowed_logT = -99  
+    !log_tau_function_weight = 0.0
+    !gradT_function_weight = 1.0
+
+    initial_mass = 1d4
+    initial_z = 0
+    initial_y = 0.25  ! initial_x = 0.75
+
+    Pextra_factor = 1
+
+    mixing_length_alpha = 2
+    !MLT_option = 'ML1'
+
+    use_Ledoux_criterion  = .true.
+    
+    energy_eqn_option = 'dedt'
+    use_gold_tolerances = .true.
+    steps_before_use_gold_tolerances = 100
+
+    use_other_cgrav = .true.
+    do_conv_premix = .true.
+
+    overshoot_scheme(1) = 'exponential'
+    overshoot_zone_type(1) = 'any'
+    overshoot_zone_loc(1) = 'any'
+    overshoot_bdy_loc(1) = 'any'
+    overshoot_f(1) = 0.01
+    overshoot_f0(1) = 0.005
+
+    x_logical_ctrl(1) = .true.   ! accrete onto black hole
+    x_ctrl(1) = 0.1              ! radiative efficiency
+    x_ctrl(2) = 0.1              ! convective efficiency
+    x_ctrl(3) = 1.0              ! BH mass growth timestep factor
+
+/ ! end of controls namelist
