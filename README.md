@@ -5,7 +5,7 @@ Additional features, processes, data, and plots will be added as development and
 
 The primary changes have been made within the [MESA](https://mesa.sourceforge.net/) [`run_star_extras.f90`](https://github.com/andysantarelli/quasi-star-model/template/src/run_star_extras.f90) file. These were inspired by [earlier work](https://github.com/earlbellinger/black-hole-sun) done with [Earl Bellinger](https://earlbellinger.com). The core changes are found in the subroutine below. 
 
-```
+```fortran
 subroutine black_hole_accretion(id, s, startup, ierr)
     integer, intent(in) :: id
     logical, intent(in) :: startup
@@ -118,7 +118,7 @@ end subroutine black_hole_accretion
 
 We also implement a smoothing function for the sound speed (and thus the Bondi radius) in order to decrease noise very near the black hole that can be detrimental to the structure of the quasi-star. We include the option to add weights for spatial and temporal smoothing, however the temporal smoothing is off by default. 
 
-```
+```fortran
 real(dp) function get_smoothed_sound_speed(s) result(c_s_smooth)
    type (star_info), pointer :: s
    real(dp) :: c_s_spatial, sum_cs
