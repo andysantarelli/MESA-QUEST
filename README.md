@@ -116,6 +116,15 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
       end subroutine black_hole_accretion
 ```
 
+We include relevant adjustable parameters at the bottom of the [inlist](https://github.com/andysantarelli/quasi-star-model/blob/main/template/inlist/). These will be expanded to include additional options and scenarios as we develop these models further. 
+
+```fortran
+    x_logical_ctrl(1) = .true.   ! accrete onto black hole
+    x_ctrl(1) = 0.1              ! radiative efficiency
+    x_ctrl(2) = 0.1              ! convective efficiency
+    x_ctrl(3) = 1.0              ! BH mass growth timestep factor
+```
+
 We also implement a smoothing function for the sound speed (and thus the Bondi radius) in order to decrease noise very near the black hole that can be detrimental to the structure of the quasi-star. We include the option to add weights for spatial and temporal smoothing, however the temporal smoothing is off by default. 
 
 ```fortran
