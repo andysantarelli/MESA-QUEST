@@ -116,7 +116,7 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
       end subroutine black_hole_accretion
 ```
 
-We include relevant adjustable parameters at the bottom of the [inlist](https://github.com/andysantarelli/quasi-star-model/blob/main/template/inlist/). These will be expanded to include additional options and scenarios as we develop these models further. 
+We include relevant adjustable parameters at the bottom of the [`inlist_project`](https://github.com/andysantarelli/quasi-star-model/blob/main/template/inlist/) file. These will be expanded to include additional options and scenarios as we develop these models further. 
 
 ```fortran
     x_logical_ctrl(1) = .true.   ! accrete onto black hole
