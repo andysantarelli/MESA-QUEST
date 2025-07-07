@@ -43,8 +43,8 @@
     max_surface_cell_dq = 1d-10
     max_allowed_nz = 20000
 
-    !hydro_mtx_max_allowed_logT = 99   
-    !hydro_mtx_min_allowed_logT = -99  
+    !hydro_mtx_max_allowed_logT = 15   
+    !hydro_mtx_min_allowed_logT = -2  
     !log_tau_function_weight = 0.0
     !gradT_function_weight = 1.0
 
