@@ -32,7 +32,7 @@
 
     write_profiles_flag = .true.
     history_interval = 20
-    profile_interval = 999999999
+    profile_interval = 999999999 ! outputs every 100 Msun intervals for BH mass in run_star_extras 
     photo_interval = -1
     max_num_profile_models = 50
 
