@@ -108,6 +108,38 @@
          c_s_smooth_prev = c_s_smooth
          
       end function get_smoothed_sound_speed
+
+
+      ! Rate-limited Bondi radius update
+      real(dp) function get_bondi_radius(s, R_B_new) result(R_B_limited)
+         type (star_info), pointer :: s
+         real(dp), intent(in) :: R_B_new
+         real(dp) :: max_change, max_fractional_change
+         real(dp) :: dt, c_s
+
+         dt  = s% dt  ! time step (s)
+         c_s = get_smoothed_sound_speed(s)  ! sound speed (cm/s)
+         
+         if (first_bondi_call) then
+            R_B_limited = R_B_new
+            first_bondi_call = .false.
+         else
+            max_fractional_change = dt * c_s / (2 * R_B_new)
+            max_change = max_fractional_change * R_B_prev
+            
+            ! Limit the change
+            if (R_B_new > R_B_prev + max_change) then
+               R_B_limited = R_B_prev + max_change
+            else if (R_B_new < R_B_prev - max_change) then
+               R_B_limited = R_B_prev - max_change
+            else
+               R_B_limited = R_B_new
+            end if
+         end if
+         
+         R_B_prev = R_B_limited
+         
+      end function get_bondi_radius
       
       
       ! Adjust radial coordinates to match new center radius
@@ -186,7 +218,7 @@
           ! Calculate Bondi radius
           R_B_smooth = 2d0 * G * M_BH_new / c_s_smooth**2
           R_B_raw = 2d0 * G * M_BH_new / c_s**2
-          R_B = R_B_smooth
+          R_B = get_bondi_radius(s, R_B_smooth)
           
           ! Calculate cavity mass and core properties
           M_cav = 8d0 * pi / 3d0 * rho * R_B**3
