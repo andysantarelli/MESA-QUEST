@@ -44,6 +44,8 @@
       ! Storage for smoothing algorithm
       real(dp), save :: c_s_smooth_prev = 0d0
       logical, save :: first_call = .true.
+      real(dp), save :: R_B_prev = 0d0
+      logical, save :: first_bondi_call = .true.
       
       contains
 
