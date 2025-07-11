@@ -57,7 +57,7 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
           ! Calculate Bondi radius
           R_B_smooth = 2d0 * G * M_BH_new / c_s_smooth**2
           R_B_raw = 2d0 * G * M_BH_new / c_s**2
-          R_B = R_B_smooth
+          R_B = get_bondi_radius(R_B_smooth)
           
           ! Calculate cavity mass and core properties
           M_cav = 8d0 * pi / 3d0 * rho * R_B**3
