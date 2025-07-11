@@ -124,7 +124,7 @@
             R_B_limited = R_B_new
             first_bondi_call = .false.
          else
-            max_fractional_change = dt * c_s / (2 * R_B_new)
+            max_fractional_change = 0.05
             max_change = max_fractional_change * R_B_prev
             
             ! Limit the change
