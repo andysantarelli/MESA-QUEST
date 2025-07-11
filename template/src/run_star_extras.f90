@@ -110,7 +110,7 @@
       end function get_smoothed_sound_speed
 
 
-      ! Rate-limited Bondi radius update
+      ! Bondi radius update
       real(dp) function get_bondi_radius(s, R_B_new) result(R_B_limited)
          type (star_info), pointer :: s
          real(dp), intent(in) :: R_B_new
