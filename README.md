@@ -78,7 +78,7 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
           s% xtra(7)  = rad_eff
           s% xtra(8)  = opacity
           s% xtra(9)  = M_cav
-          s% xtra(10)  = P_rad
+          s% xtra(10) = P_rad
           s% xtra(11) = P_gas
           s% xtra(12) = nabla_ad
           s% xtra(13) = M_dot_Bondi
