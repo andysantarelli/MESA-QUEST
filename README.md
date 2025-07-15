@@ -160,3 +160,5 @@ We also implement a smoothing function for the sound speed (and thus the Bondi r
          
       end function get_smoothed_sound_speed
 ```
+
+![qwest? qwest!](https://github.com/andysantarelli/MESA-QUEST/blob/main/figs/qwest%EF%BC%9F/qwest!.png)
