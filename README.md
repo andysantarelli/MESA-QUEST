@@ -27,17 +27,17 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
           timestep_factor = s% x_ctrl(3) ! Timestep scaling factor
           
           ! Extract stellar properties at center
-          dt      = s% dt
-          G       = s% cgrav(s% nz)
-          c_s     = s% csound(s% nz)
-          rho     = s% rho(s% nz)
-          opacity = s% opacity(s% nz)
-          P_rad   = s% prad(s% nz)
-          P_gas   = s% pgas(s% nz)
-          gamma1  = s% gamma1(s% nz)
-          R       = 10**(s% log_surface_radius) * Rsun
+          dt       = s% dt
+          G        = s% cgrav(s% nz)
+          c_s      = s% csound(s% nz)
+          rho      = s% rho(s% nz)
+          opacity  = s% opacity(s% nz)
+          P_rad    = s% prad(s% nz)
+          P_gas    = s% pgas(s% nz)
+          gamma1   = s% gamma1(s% nz)
+          R        = 10**(s% log_surface_radius) * Rsun
           nabla_ad = 1d0 - 1d0 / gamma1
-          c2 = clight**2
+          c2       = clight**2
 
           M_BH = s% xtra(1) ! Black hole mass in grams
           M_rat = M_BH / s% mstar
