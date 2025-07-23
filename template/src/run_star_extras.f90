@@ -245,9 +245,8 @@
           s% xtra(11) = P_gas
           s% xtra(12) = nabla_ad
           s% xtra(13) = M_dot_Bondi
-          s% xtra(14) = L_BH
-          s% xtra(15) = c_s_smooth
-          s% xtra(16) = c_s
+          s% xtra(14) = c_s_smooth
+          s% xtra(15) = c_s
 
           ! Apply core modifications
           if (startup) then
@@ -344,7 +343,7 @@
          ierr = 0
          call star_ptr(id, s, ierr)
          if (ierr /= 0) return
-         how_many_extra_history_columns = 16
+         how_many_extra_history_columns = 15
       end function how_many_extra_history_columns
       
       
@@ -360,8 +359,8 @@
          if (ierr /= 0) return
          
          ! Initialize arrays
-         names(1:16) = 'empty'
-         vals(1:16) = -1d99
+         names(1:15) = 'empty'
+         vals(1:15) = -1d99
          
          ! Set black hole history columns
          if (s% x_logical_ctrl(1)) then 
@@ -374,29 +373,27 @@
              names(4) = "R_B_raw"
              vals(4) = s% xtra(4) / Rsun
              names(5) = "M_dot"
-             vals(5) = s% xtra(4) / Msun
+             vals(5) = s% xtra(5) / Msun
              names(6) = "log10_dm_dt"
-             vals(6) = s% xtra(5)
+             vals(6) = s% xtra(6)
              names(7) = "rad_eff"
-             vals(7) = s% xtra(6)
+             vals(7) = s% xtra(7)
              names(8) = "kap_center"
-             vals(8) = s% xtra(7)
+             vals(8) = s% xtra(8)
              names(9) = "M_cav"
-             vals(9) = s% xtra(8) / Msun
+             vals(9) = s% xtra(9) / Msun
              names(10) = "prad_center"
-             vals(10) = s% xtra(9)
+             vals(10) = s% xtra(10)
              names(11) = "pgas_center"
-             vals(11) = s% xtra(10)
+             vals(11) = s% xtra(11)
              names(12) = "nabla_ad_center"
-             vals(12) = s% xtra(11)
+             vals(12) = s% xtra(12)
              names(13) = "M_dot_Bondi" 
-             vals(13) = s% xtra(12)
-             names(14) = "L_BH"
-             vals(14) = s% xtra(13) / Lsun
-             names(15) = "cs_smooth"
-             vals(15) = s% xtra(14)
-             names(16) = "cs_center"
-             vals(16) = s% xtra(15)
+             vals(13) = s% xtra(13)
+             names(14) = "cs_smooth"
+             vals(14) = s% xtra(14)
+             names(15) = "cs_center"
+             vals(15) = s% xtra(15)
          end if
 
       end subroutine data_for_extra_history_columns
