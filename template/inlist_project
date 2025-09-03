@@ -55,7 +55,7 @@
     Pextra_factor = 1
 
     mixing_length_alpha = 2
-    MLT_option = 'ML1'
+    MLT_option = 'TDC'
 
     use_Ledoux_criterion  = .true.
     
