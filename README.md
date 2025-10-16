@@ -1,7 +1,7 @@
 # MESA Quasi-star Evolutionary Simulation Toolkit (MESA-QUEST)
 This is a MESA model simulating a quasi-star -- a massive, star-like object containing a black hole in its core that acts as a heavy SMBH seeding mechanism. 
 This is an early version, created to replicate the work of [Ball 2012](https://ui.adsabs.harvard.edu/abs/2012PhDT.........1B/abstract). 
-Additional features, processes, data, and plots will be added as development and research continues. 
+Additional features, processes, data, and plots will be added upon publication of their respective papers.
 
 The primary changes have been made within the [MESA](https://mesa.sourceforge.net/) [`run_star_extras.f90`](https://github.com/andysantarelli/quasi-star-model/blob/main/template/src/run_star_extras.f90) file. These were inspired by [earlier work](https://github.com/earlbellinger/black-hole-sun) done with [Earl Bellinger](https://earlbellinger.com). The core changes are found in the subroutine below. 
 
