@@ -1,0 +1,15 @@
+&colors
+      ! Enable the colors module
+      use_colors = .false.
+
+      instrument = '/colors/data/filters/JWST/NIRCam'
+      vega_sed = '/colors/data/stellar_models/vega_flam.csv'
+      stellar_atm = '/colors/data/stellar_models/Kurucz2003all/'
+      
+      ! Physical parameters for synthetic photometry
+      distance = 3.0857d19         ! Distance to star in cm (1 pc = 3.0857e18 cm)  
+      
+      ! Output options
+      make_csv = .true.            ! Write detailed SED files showing filter convolution  -- This is also needed for plotting the SED.
+                                   ! Creates files like: LOGS/SED/G_SED.csv, LOGS/SED/VEGA_G_SED.csv
+/ ! end of colors namelist

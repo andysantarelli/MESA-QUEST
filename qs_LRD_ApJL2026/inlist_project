@@ -1,0 +1,135 @@
+&star_job
+
+    create_pre_main_sequence_model = .false.
+    pre_ms_relax_to_start_radiative_core = .false.
+
+! load model
+    load_saved_model = .true.
+    load_model_filename = '1d6_Msun_Z0.mod'
+
+    change_initial_net = .true.
+    new_net_name = 'pp_cno_extras_o18_ne22.net'
+
+    pgstar_flag = .true.
+
+    new_core_mass = 10
+
+    dlg_core_mass_per_step  = 1d-1
+
+    pre_ms_T_c = 7d5
+
+/ ! end of star_job namelist
+
+
+&eos
+/ ! end of eos namelist
+
+&kap
+! kap options
+! see kap/defaults/kap.defaults
+    use_Type2_opacities = .true.
+    Zbase = 0.0
+
+/ ! end of kap namelist
+
+
+&controls
+
+! data output
+    log_directory = 'LOGS'
+    write_profiles_flag    = .true.
+    history_interval       = 1
+    profile_interval       = 999999999
+    max_num_profile_models = 50
+    photo_interval         = 100
+    photo_digits           = 8
+    max_num_profile_models = 400000
+    write_header_frequency = 10
+    terminal_interval      = 10
+
+! initial conditions
+    initial_mass = 1d6
+    initial_z = 0.0
+    initial_y    = 0.24  ! initial_x = 0.76
+
+! mesh parameters
+    mesh_delta_coeff    = 1d0!0.2
+    min_timestep_limit  = 1d-20
+    max_allowed_nz      = 20000
+    max_center_cell_dq = 1d-2 !1d-14
+    !max_surface_cell_dq = 1d0
+    max_num_merge_surface_cells = 5
+    max_surface_cell_dq= 1d-3
+    min_surface_cell_dq = 1d-8
+
+! timesteps
+    ! global hammer
+    time_delta_coeff = 1d0 !0.2
+    
+    delta_lgRho_cntr_limit      = 1d-2 ! to 1d-3 or lower in production runs
+    delta_lgRho_cntr_hard_limit = -1
+    delta_lgRho_limit           = 0.1 
+    
+    delta_lgT_cntr_limit_only_after_near_zams = .false.
+    delta_lgT_cntr_limit                      = 1d-2 
+    delta_lgT_cntr_hard_limit                 = -1 
+    delta_lgT_max_limit_only_after_near_zams  = .false.
+    delta_lgT_max_limit                       = 1d-2
+    delta_lgT_max_hard_limit                  = -1
+
+! built-in wind schemes - do not use if using super-Eddington winds
+    !cool_wind_RGB_scheme   = 'Dutch'
+    !cool_wind_RGB_scheme  = 'Reimers'
+    !Dutch_scaling_factor   = 0.8
+    !Reimers_scaling_factor = 0.5
+
+    ! only use the cool_wind_scheme 
+    cool_wind_full_on_T    = 1d10 
+    hot_wind_full_on_T     = 1.1d10
+    hot_wind_scheme        = ''
+
+! mixing length options
+    mixing_length_alpha  = 0.8
+    MLT_option           = 'TDC'
+    steps_before_use_TDC = 100 ! for relaxation phase.
+
+    ! engineering hack for superadiabatic convection
+    use_superad_reduction               = .false.
+    superad_reduction_Gamma_limit       = 0.3d0
+    superad_reduction_Gamma_limit_scale = 5d0
+    superad_reduction_Gamma_inv_scale   = 5d0
+    superad_reduction_diff_grads_limit  = 1d-1 !1d-2
+    superad_reduction_limit             = -1d0
+
+    use_Ledoux_criterion = .true.  
+    energy_eqn_option    = 'dedt'
+    use_gold_tolerances  = .true.
+
+! turn of composition changes and mixing
+    dxdt_nuc_factor = 0
+    mix_factor      = 0
+
+    use_other_cgrav = .true.
+
+    ! additional controls
+    x_logical_ctrl(1) = .true.    ! accrete onto black hole
+    x_logical_ctrl(2) = .true.    ! use saturated-convection inner boundary
+    x_logical_ctrl(3) = .true.    ! use M_star Eddington rate ! .false. means use Ball et al. 2012
+    x_logical_ctrl(4) = .false.   ! use super-Eddington winds
+    
+    x_ctrl(1) = 0.1               ! radiative efficiency, epsilon
+    x_ctrl(2) = 0.1               ! convective efficiency, eta (only used for Ball accretion)
+    x_ctrl(3) = 1.0               ! BH mass growth timestep factor
+    x_ctrl(4) = 1.0               ! accretion factor, alpha
+    x_ctrl(5) = 1d5               ! profile interval in Msun units
+    x_ctrl(6) = -1                ! black hole mass limit in Msun units (negative value means no limit)
+
+!  solver controls
+    report_solver_progress = .false.
+    report_ierr = .false.
+
+    convergence_ignore_equL_residuals = .true.
+    hard_limit_for_rel_error_in_energy_conservation = 1d99
+    limit_for_rel_error_in_energy_conservation = 1d5
+
+/ ! end of controls namelist
