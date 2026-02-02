@@ -10,7 +10,7 @@ Additional features, processes, data, and plots will be added upon publication o
 
 If you use MESA-QUEST in a publication, please cite the corresponding publications above, and follow the MESA best practices guidelines. 
 
-The primary changes have been made within the [MESA](https://mesa.sourceforge.net/) [`run_star_extras.f90`](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/src/run_star_extras.f90) file. These were inspired by [earlier work](https://github.com/earlbellinger/black-hole-sun) done with [Earl Bellinger](https://earlbellinger.com). The core changes are found in the subroutine below. 
+The primary changes have been made within the [MESA](https://mesa.sourceforge.net/) [`run_star_extras.f90`](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/src/run_star_extras.f90) file. The core changes are found in the subroutine below. 
 
 ```fortran
       subroutine black_hole_accretion(id, s, startup, restart, ierr)
