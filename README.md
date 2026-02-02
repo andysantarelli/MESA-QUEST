@@ -3,8 +3,8 @@ This is a MESA model simulating a quasi-star -- a massive, star-like object cont
 
 We include each version here:
  - An early [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_Bondi_RNAAS2025/), created to replicate the work of [Ball 2012](https://ui.adsabs.harvard.edu/abs/2012PhDT.........1B/abstract). Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2515-5172/adef33/meta).
- - A [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/) containing a new implementation based on [Coughlin 2024](https://iopscience.iop.org/article/10.3847/1538-4357/ad5723). Publication in press.
- - A version using the previous implementation along with the MESA Colors module. Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2041-8213/ae3713).
+ - A version containing a new implementation based on [Coughlin 2024](https://iopscience.iop.org/article/10.3847/1538-4357/ad5723). Publication in press.
+ - A [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/) using the previous implementation along with the MESA Colors module. Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2041-8213/ae3713).
 
 Additional features, processes, data, and plots will be added upon publication of their respective papers.
 
@@ -85,12 +85,12 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
           s% xtra(2)  = L_BH
           s% xtra(3)  = R_B
           s% xtra(4)  = M_dot
-          log_dm_dt  = safe_log10(dm) - safe_log10(dt)
+          log_dm_dt   = safe_log10(dm) - safe_log10(dt)
           s% xtra(5)  = log_dm_dt
           s% xtra(6)  = rad_eff
           s% xtra(7)  = opacity
           s% xtra(8)  = M_cav
-          s% xtra(9) = M_dot_Bondi
+          s% xtra(9)  = M_dot_Bondi
           s% xtra(10) = L_Bondi
           s% xtra(11) = c_s
           s% xtra(12) = R_sc
