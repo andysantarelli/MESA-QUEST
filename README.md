@@ -2,13 +2,13 @@
 This is a MESA model simulating a quasi-star -- a massive, star-like object containing a black hole in its core that acts as a heavy SMBH seeding mechanism. 
 
 We include each version here:
- - An early [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_Bondi_RNAAS2025/), created to replicate the work of [Ball 2012](https://ui.adsabs.harvard.edu/abs/2012PhDT.........1B/abstract). Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2515-5172/adef33/meta).
- - A version containing a new implementation based on [Coughlin 2024](https://iopscience.iop.org/article/10.3847/1538-4357/ad5723). Publication in press.
- - A [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/) using the previous implementation along with the MESA Colors module. Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2041-8213/ae3713).
+ - An early [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_Bondi_RNAAS2025/), created to replicate the work of [Ball 2012](https://ui.adsabs.harvard.edu/abs/2012PhDT.........1B/abstract). Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2515-5172/adef33/meta). MESA version r24.03.1.
+ - A version containing a new implementation based on [Coughlin 2024](https://iopscience.iop.org/article/10.3847/1538-4357/ad5723). Publication in press. MESA version r24.08.1.
+ - A [version](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/) using the previous implementation along with the MESA Colors module. Corresponding publication found [here](https://iopscience.iop.org/article/10.3847/2041-8213/ae3713). MESA version r25.12.1.
 
 Additional features, processes, data, and plots will be added upon publication of their respective papers.
 
-If you use MESA-QUEST in a publication, please cite the corresponding publications above, and follow the MESA best practices guidelines. 
+If you use MESA-QUEST in a publication, please cite the corresponding publications above, and follow the [MESA best practices](https://docs.mesastar.org/en/latest/using_mesa/best_practices.html) guidelines. 
 
 The primary changes have been made within the [MESA](https://mesa.sourceforge.net/) [`run_star_extras.f90`](https://github.com/andysantarelli/MESA-QUEST/blob/main/qs_LRD_ApJL2026/src/run_star_extras.f90) file. The core changes are found in the subroutine below. 
 
