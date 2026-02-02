@@ -97,11 +97,7 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
 
           ! Apply core modifications
           if (startup .and. .not. restart) then
-              call star_write_model(id, "initial_model.mod", ierr)
-!              call star_relax_core( &
-!                  id, new_core_mass, s% job% dlg_core_mass_per_step, &
-!                  s% job% relax_core_years_for_dt, &
-!                  core_avg_rho, core_avg_eps, ierr)
+             call star_write_model(id, "initial_model.mod", ierr)
 
              s% M_center = new_core_mass !M_BH
              s% L_center = L_BH
@@ -120,15 +116,6 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
               s% mstar = s% mstar - rad_eff * M_dot * dt
               s% xmstar = s% mstar - s% M_center
               s% L_center = L_BH
-
-!            !nz = s% nz
-!            L_center_prev = s% L_center
-!            s% L_center = L_BH
-!            dL = L_BH - L_center_prev
-!            do k=1,s%nz
-!               s% xh(s%i_lum,k) = s% xh(s%i_lum,k) + dL
-!            end do
-
 
             if (s% x_logical_ctrl(2)) then
                 call do1_relax_R_center(s, R_sc, ierr)
