@@ -104,10 +104,8 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
 
             if (s% x_logical_ctrl(2)) then
                 call do1_relax_R_center(s, R_sc, ierr)
-                !call star_relax_R_center(id, R_sc, 1d-2, 1d-5, ierr)
             else
-                call do1_relax_R_center(s, R_B, ierr)  ! Use smoothed R_B
-                !call star_relax_R_center(id, R_B, 1d-2, 1d-5, ierr)
+                call do1_relax_R_center(s, R_B, ierr)  
             end if
 
           else
@@ -119,12 +117,8 @@ The primary changes have been made within the [MESA](https://mesa.sourceforge.ne
 
             if (s% x_logical_ctrl(2)) then
                 call do1_relax_R_center(s, R_sc, ierr)
-                !s% R_center = R_sc
-                !call star_relax_R_center(id, R_sc, 1d-2, 1d-5, ierr)
             else
-            !                  s% R_center = R_B
                 call do1_relax_R_center(s, R_B, ierr)  ! Use smoothed R_B
-                !call star_relax_R_center(id, R_B, 1d-2, 1d-5, ierr)
             end if
 
           end if
